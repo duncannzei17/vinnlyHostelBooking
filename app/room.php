@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class room extends Model
 {
     protected $primaryKey = 'Room_id';
+    
     public function Feature()
     {
         return $this->hasMany('App\Feature');
