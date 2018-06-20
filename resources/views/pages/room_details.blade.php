@@ -77,41 +77,26 @@
                             <p>{{$specific->Description}}</p>
                             <hr>
                         </div>
-                        <p>Apartment Rules<p/>
                             <div class="row">
-                                
-                        
-                           
-                            <div class="col-md-6">
-                                <label class="custom-checkbox">
-                       <span class="ti-check-box"></span>
-                       <span class="custom-control-description">Wireless Internet  </span>
-                     </label>
-                            </div>
-                            <div class="col-md-6">
-                                <label class="custom-checkbox">
-                     <span class="ti-check-box"></span>
-                     <span class="custom-control-description">Smoking Allowed  </span>
-                   </label> </div>
-                            <div class="col-md-6">
-                                <label class="custom-checkbox">
-                    <span class="ti-check-box"></span>
-                    <span class="custom-control-description">Street Parking</span>
-                  </label>
-                            </div>
-                            <div class="col-md-6">
-                                <label class="custom-checkbox">
-                   <span class="ti-check-box"></span>
-                   <span class="custom-control-description">Special</span>
-                 </label> </div>
-                            <div class="col-md-6">
-                                <label class="custom-checkbox">
-                  <span class="ti-check-box"></span>
-                  <span class="custom-control-description">Accepts Credit cards</span>
-                </label>
-                            </div>
-                        </div>
-
+                                <div class="col-md-6">
+                                        <p>Amenities<p/>
+                                    @foreach($features as $feature)
+                                        <label class="custom-checkbox">
+                                            <span class="ti-check-box"></span>
+                                            <span class="custom-control-description">{{$feature->Feature}}  </span>
+                                        </label>
+                                    @endforeach
+                                </div>
+                                <div class="col-md-6">
+                                        <p>Rules<p/>
+                                    @foreach($regulations as $regulation)
+                                        <label class="custom-checkbox">
+                                            <span class="ti-check-box"></span>
+                                            <span class="custom-control-description">{{$regulation->Regulation}}  </span>
+                                        </label>
+                                    @endforeach
+                                </div>
+                            </div> 
                         <hr>
                         <p>Rental charges<p/>
                         <div class="row">
@@ -150,55 +135,34 @@
                             </div>
                         </div><hr>
                         <p>Nearby Institutions<p/>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label class="custom-checkbox">
-                            <span class="ti-check-box"></span>
-                            <span class="custom-control-description">Bike Parking</span>
-                          </label> </div>
-                                <div class="col-md-6">
-                                    <label class="custom-checkbox">
-                           <span class="ti-check-box"></span>
-                           <span class="custom-control-description">Wireless Internet  </span>
-                         </label>
-                                </div>
-                                <div class="col-md-6">
-                                    <label class="custom-checkbox">
-                         <span class="ti-check-box"></span>
-                         <span class="custom-control-description">Smoking Allowed  </span>
-                       </label> </div>
-                                <div class="col-md-6">
-                                    <label class="custom-checkbox">
-                        <span class="ti-check-box"></span>
-                        <span class="custom-control-description">Street Parking</span>
-                      </label>
-                                </div>
-                                <div class="col-md-6">
-                                    <label class="custom-checkbox">
-                       <span class="ti-check-box"></span>
-                       <span class="custom-control-description">Special</span>
-                     </label> </div>
-                                <div class="col-md-6`">
-                                    <label class="custom-checkbox">
-                      <span class="ti-check-box"></span>
-                      <span class="custom-control-description">Accepts Credit cards</span>
-                    </label>
-                                </div>
-                            </div>
-                    </div>
+                    <div class="row">
+                           <div class="col-md-12">
+                                @foreach($institutions as $institution)
+                                   <label class="custom-checkbox">
+                                        <span class="ti-check-box"></span>
+                                        <span class="custom-control-description">{{$institution->Institution}}  </span>
+                                    </label><br>
+                                @endforeach
+                            </div><hr>
+                        </div>
+                    </div>                
                 </div>
                 <div class="col-md-4 responsive-wrap">
                     <div class="contact-info">
                         <img src="{{ asset('storage/home/waiting.jpg') }}" class="img-fluid" alt="#">
-                        <div class="address">
-                            <span class="icon-location-pin"></span>
-                            <p> Doyers St<br> New York, NY 10013<br> b/t Division St & St James Pl <br> Chinatown, Civic Center</p>
+                        <div class="container"><br>
+                        <h5 class="text-center"><strong>Talk to our team</strong></h5><hr>
+                        <p text="center">Full Name</p><br>
+                        <div class="form-group">
+                            <input class="col-md-4" type="text" name="firstname" placeholder="First Name">
+                        
+                            <input class="col-md-4" type="text" name="lastname" placeholder="Last Name">
                         </div>
-                        <div class="address">
+                        <div class="form-group">
                             <span class="icon-screen-smartphone"></span>
                             <p> +44 20 7336 8898</p>
                         </div>
-                        <div class="address">
+                        <div class="form">
                             <span class="icon-link"></span>
                             <p>https://burgerandlobster.com</p>
                         </div>
@@ -207,6 +171,7 @@
                             <p>Mon - Sun 09:30 am - 05:30 pm <br>
                                 <span class="open-now">OPEN NOW</span></p>
                                 <br><br>
+                            </div>
                         </div>
                     </div>
                 </div>

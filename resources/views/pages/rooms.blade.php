@@ -11,17 +11,20 @@
                         <div class="row light-bg detail-options-wrap">
                             <div class="col-sm-6 col-lg-12 col-xl-6 featured-responsive">
                                 <div class="featured-place-wrap">
-                                    <a href="Rooms/{{$room->id}}">
+                                    <a href="Rooms/{{$room->Room_id}}">
                                         <img src="storage/rooms/{{$room->Image1}}" class="img-fluid" alt="#">
                                         <div class="featured-title-box">
                                             <h6>{{$room->Residence_name}}</h6>
                                             <p>Rooms Available </p> <div class="pull-right"><p><b> {{$room->Rooms_available}}</b></p></div>
                                             <ul>
-                                                <li><span class="icon-location-pin"></span>
+                                                <li><span class="icon-wallet"></span>
                                                     <p>Rental Charges</p><div class="pull-right"><p><b> {{$room->Rental_per_month}}</b></p></div>
                                                 </li>
-                                                <li><span class="icon-screen-smartphone"></span>
+                                                <li><span class="icon-hourglass"></span>
                                                     <p>Payment Terms</p><div class="pull-right"><p><b> {{$room->Payment_terms}}</b></p></div>
+                                                </li>
+                                                <li><span class="icon-grid"></span>
+                                                    <p>Layout</p><div class="pull-right"><p><b> {{$room->Layout}}</b></p></div>
                                                 </li>
                                             </ul>
                                         </div>

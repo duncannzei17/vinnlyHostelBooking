@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 
 use App\room;
 
+use App\regulation;
+
+use App\Institution;
+
 use App\Feature;
 
 use Session;
@@ -73,13 +77,15 @@ class RoomsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($Room_id)
     {   
-        $features = Feature::find(1);
-
-        $specific = room::find($id);
+        $specific = room::find($Room_id);
         session::put('specific', $specific);
-        return view('pages.room_details')->with('specific', $specific)->with('features', $features);
+        $institutions = Institution::where("Room_id", $Room_id)->get();
+        $features = Feature::where("Room_id", $Room_id)->get();
+        $regulations = regulation::where("Room_id", $Room_id)->get();
+        
+        return view('pages.room_details')->with('specific', $specific)->with('features', $features)->with('regulations', $regulations)->with('institutions', $institutions);
     }
 
     /**

@@ -15,7 +15,7 @@ class CreateRegulationsTable extends Migration
     {
         Schema::create('regulations', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('Residence_ID');
+            $table->string('Room_id');
             $table->string('Regulation');
             $table->timestamps();
         });
