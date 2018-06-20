@@ -57,7 +57,7 @@ class RoomsController extends Controller
      */
     public function create()
     {
-        //
+        //Adding a comment to test
     }
 
     /**
