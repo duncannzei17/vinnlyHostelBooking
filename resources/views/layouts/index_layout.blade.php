@@ -32,8 +32,7 @@
 </head>
 <body>
 <div id="app">
-    <div class="nav-menu">
-        <div class="bg transition">
+        <div class="dark-bg sticky-top">
             <div class="container-fluid fixed">
                 <div class="row">
                     <div class="col-md-12">
@@ -42,7 +41,7 @@
                             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="icon-menu"></span>
                             </button> 
-							<div class="collapse navbar-collapse" id="navbarSupportedContent">
+							<div class="collapse navbar-collapse" id="navbarNavDropdown">
 							<!-- Left Side Of Navbar 
 								ul class="navbar-nav mr-auto">
 
@@ -51,10 +50,10 @@
 							<!-- Right Side Of Navbar -->
 							<ul class="navbar-nav ml-auto">
                         <!-- Pages Links -->
-                            <li class="nav-item active">
+                            <li class="nav-item dropdown">
                                 <a class="nav-link" href="{{ url('/about_us') }}">About us</a>
                             </li>
-                            <li class="nav-item">
+                            <li class="nav-item dropdown">
                                 <a class="nav-link" href="{{ url('/contact')}}">Contact</a>
                             </li>
                         <!-- Authentication Links -->
@@ -81,16 +80,14 @@
                             </li>
                         @endguest
 						</ul>
-							</div>	
-						</nav>
-					</div>
+						</div>	
+    				</div>
 				</div>
-			</div> 
-		</div> 
-	</div>
-        <main class="py-4">
-            @yield('content')
-        </main>
+            </div> 
+        </div> 	
+        
+         @yield('content')
+      
      <!-- footer -->
      <footer class="main-block dark-bg">
             <div class="container text-white">
@@ -111,7 +108,7 @@
                     </div>
                     <div class="col-sm-4 subscribe">
                         <h4>Subscription</h4>
-                       
+                       {!!Form::open(['method'=>'GET','action'=>'SubscribesController@store'])!!}
                         <div class="input-group">
                         <input name="email" type="email" class="form-control" placeholder="Enter your email here" required>
                         <span class="input-group-btn">
@@ -135,10 +132,7 @@
         </footer>
 
         <div class="text-center copyright light-bg">Powered by Nzei Software Solutions. <a href="{{ url('/terms') }}" >Terms and conditions. </a><a  href="{{ url('/privacy') }}" >Privacy policy</a></div>
-
-        
-    </div>
-</div>   
+ 
     <script type="text/javascript" src="{{ url('js/jquery-3.2.1.min.js') }}" ></script>
     <script>
     $(window).scroll(function() {

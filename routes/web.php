@@ -21,7 +21,13 @@ Route::get('/about_us','PagesController@about_us');
 
 Route::get('/contact','PagesController@contact');
 
+Route::get('/privacy','PagesController@privacy');
+
+Route::get('/terms','PagesController@terms');
+
 Route::get('/room_details','PagesController@room_details');
 
 Route::resource('Rooms', 'RoomsController');
+
+Route::resource('Subscribe', 'SubscribesController');
 

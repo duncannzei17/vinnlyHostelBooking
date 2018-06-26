@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.index_layout')
 
 @section('content')
     
@@ -194,7 +194,7 @@
                 </div>
                 <div class="row">
                     <div class="col-md-3 category-responsive">
-                        <a href="#" class="category-wrap">
+                        <a href="http://www.mut.ac.ke" class="category-wrap">
                             <div class="category-block">
                                 <img src="{{ url('storage/home/muranga.jpg') }}"     >
                                     <h6>Murang'a University</h6>

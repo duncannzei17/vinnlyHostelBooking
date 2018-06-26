@@ -1,14 +1,14 @@
-@extends('layouts.app')
+@extends('layouts.app_layout')
 
 @section('content')
  
- <!--============================= DETAIL =============================-->
-    <div class="container-fluid">
+ <!--============================= DETAIL =============================-->  
+ <div class="container-fluid">
         <div class="row">
+            <div class="col-md-7 responsive-wrap">
+                <div class="row light-bg detail-options-wrap">
             @if(count($rooms)>0)
                 @foreach($rooms as $room)
-                    <div class="col-md-7 responsive-wrap">
-                        <div class="row light-bg detail-options-wrap">
                             <div class="col-sm-6 col-lg-12 col-xl-6 featured-responsive">
                                 <div class="featured-place-wrap">
                                     <a href="Rooms/{{$room->Room_id}}">
@@ -31,21 +31,18 @@
                                     </a>
                                 </div>
                             </div>
-                        </div>
-                    </div>
+                       
                 @endforeach
-                {{ $rooms->appends($_GET)->links()}}
+               <div class="container"> {{ $rooms->appends($_GET)->links()}}</div>
             @else
                 <div class = "container"> No room </div>
             
-            <div class="col-md-5 responsive-wrap map-wrap">
-                <div class="map-fix">
-                    <!-- data-toggle="affix" -->
-                    <!-- Google map will appear here! Edit the Latitude, Longitude and Zoom Level below using data-attr-*  -->
-                    <div id="map" data-lat="40.674" data-lon="-73.945" data-zoom="14"></div>
-                </div>
+            <div class="col-md-5">
+                <img  class="img-responsive" src="{{ asset('storage/home/rooms.jpg') }}" width="100%" height="400" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen>
             </div>
             @endif
+        </div>
+    </div>
         </div>
     </div>
 <!--//END DETAIL -->

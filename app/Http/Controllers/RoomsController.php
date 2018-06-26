@@ -30,17 +30,17 @@ class RoomsController extends Controller
 
         switch($range){
             case('query3'):
-                $rooms = DB::table('rooms')->where('Campus', $campus)->where('Rooms_available', '>', 0)->where('Rental_per_month', '>', 7500)->paginate(3);
+                $rooms = DB::table('rooms')->where('Campus', $campus)->where('Rooms_available', '>', 0)->where('Rental_per_month', '>', 7500)->paginate(2);
                 return view('pages.rooms')->with('rooms' , $rooms);
                 break;
 
             case('query2'):
-            $rooms = DB::table('rooms')->where('Campus', $campus)->where('Rooms_available', '>', 0)->where('Rental_per_month', '<', 7500)->paginate(3);
+            $rooms = DB::table('rooms')->where('Campus', $campus)->where('Rooms_available', '>', 0)->where('Rental_per_month', '<', 7500)->paginate(2);
                 return view('pages.rooms')->with('rooms' , $rooms);
                 break;
             
             case('query1'):
-            $rooms = DB::table('rooms')->where('Campus', $campus)->where('Rooms_available', '>', 0)->where('Rental_per_month', '<', 5000)->paginate(3);
+            $rooms = DB::table('rooms')->where('Campus', $campus)->where('Rooms_available', '>', 0)->where('Rental_per_month', '<', 5000)->paginate(2);
                 return view('pages.rooms')->with('rooms' , $rooms);
                 break;
 
