@@ -34,57 +34,59 @@
 <div id="app">
         <div class="dark-bg sticky-top">
             <div class="container-fluid fixed">
-                <div class="row">
-                    <div class="col-md-12">
-                        <nav class="navbar navbar-expand-lg navbar-light">
-                            <a class="navbar-brand pull-left" href="{{ url('/') }}"><img src="{{ asset('storage/home/logo1.png') }}"></a> 
-                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="icon-menu"></span>
-                            </button> 
-							<div class="collapse navbar-collapse" id="navbarNavDropdown">
-							<!-- Left Side Of Navbar 
-								ul class="navbar-nav mr-auto">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <nav class="navbar navbar-expand-lg navbar-light">
+                                <a class="navbar-brand pull-left" href="{{ url('/') }}"><img src="{{ asset('storage/home/logo1.png') }}"></a> 
+                                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="icon-menu"></span>
+                                </button> 
+                                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                                <!-- Left Side Of Navbar 
+                                    ul class="navbar-nav mr-auto">
 
-							</ul>
-							-->
-							<!-- Right Side Of Navbar -->
-							<ul class="navbar-nav ml-auto">
-                        <!-- Pages Links -->
-                            <li class="nav-item dropdown">
-                                <a class="nav-link" href="{{ url('/about_us') }}">About us</a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link" href="{{ url('/contact')}}">Contact</a>
-                            </li>
-                        <!-- Authentication Links -->
-                        @guest
-                            <li><a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>
-                            <li><a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a></li>
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
-
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
+                                </ul>
+                                -->
+                                <!-- Right Side Of Navbar -->
+                                <ul class="navbar-nav ml-auto">
+                            <!-- Pages Links -->
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link" href="{{ url('/about_us') }}">About us</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link" href="{{ url('/contact')}}">Contact</a>
+                                </li>
+                            <!-- Authentication Links -->
+                            @guest
+                                <li><a class="nav-link" href="{{ route('login') }}"><span<i class="fa fa-sign-in"></i></span> {{ __('Login') }}</a></li>
+                                <li><a class="nav-link" href="{{ route('register') }}"><span><i class="fa fa-user"></i><span> {{ __('Register') }}</a></li>
+                            @else
+                                <li class="nav-item dropdown">
+                                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                        {{ Auth::user()->name }} <span class="caret"></span>
                                     </a>
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest
-						</ul>
-						</div>	
-    				</div>
-				</div>
-            </div> 
-        </div> 	
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="{{ route('logout') }}"
+                                        onclick="event.preventDefault();
+                                                        document.getElementById('logout-form').submit();">
+                                            {{ __('Logout') }}
+                                        </a>
+
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            @csrf
+                                        </form>
+                                    </div>
+                                </li>
+                            @endguest
+                            </ul>
+                            </div>	
+                        </div>
+                    </div>
+            </div>
+        </div> 
+    </div> 	
         
          @yield('content')
       
@@ -112,7 +114,7 @@
                         <div class="input-group">
                         <input name="email" type="email" class="form-control" placeholder="Enter your email here" required>
                         <span class="input-group-btn">
-                        {{Form::submit('Get Notify',['class'=>'btn btn-default'])}}
+                        {{Form::submit('Get Notify',['class'=>'btn btn-primary'])}}
                         </span>
                         </div>
                         {!!Form::close()!!}
@@ -138,7 +140,7 @@
     $(window).scroll(function() {
         // 100 = The point you would like to fade the nav in.
 
-        if ($(window).scrollTop() > 100) {
+        if ($(window).scrollTop() > 700) {
 
             $('.fixed').addClass('is-sticky');
 

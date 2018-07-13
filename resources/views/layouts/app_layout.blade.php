@@ -33,7 +33,7 @@
 <body>
 <div id="app">
         <div class="dark-bg sticky-top">
-            <div class="container-fluid">
+            <div class="container">
                 <div class="row">
                     <div class="col-md-12">
                         <nav class="navbar navbar-expand-lg navbar-light">
@@ -58,35 +58,33 @@
                             </li>
                         <!-- Authentication Links -->
                         @guest
-                            <li><a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>
-                            <li><a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a></li>
+                            <li><a class="nav-link" href="{{ route('login') }}"><span<i class="fa fa-sign-in"></i></span> {{ __('Login') }}</a></li>
+                            <li><a class="nav-link" href="{{ route('register') }}"><span><i class="fa fa-user"></i><span> {{ __('Register') }}</a></li>
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
-
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
-
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
                                 </div>
                             </li>
                         @endguest
-						</ul>
+						</ul> 
 						</div>	
     				</div>
 				</div>
             </div> 
         </div> 	
         
-         @yield('content')
+     @yield('content')
       
      <!-- footer -->
      <footer class="main-block dark-bg">
@@ -112,7 +110,7 @@
                         <div class="input-group">
                         <input name="email" type="email" class="form-control" placeholder="Enter your email here" required>
                         <span class="input-group-btn">
-                        {{Form::submit('Get Notify',['class'=>'btn btn-default'])}}
+                        {{Form::submit('Get Notify',['class'=>'btn btn-primary'])}}
                         </span>
                         </div>
                         {!!Form::close()!!}
@@ -123,7 +121,7 @@
                         <a href="https://www.twitter.com/VinnlyHostels/"><i class="fa fa-twitter-square" data-toggle="tooltip" style="font-size:2.0em;" data-placement="top" data-original-title="twitter"></i></a>
                         </div>
                     </div>
-                </div>
+                </div> 
                 <!--/.row--> 
             </div>
             <!--/.container-->    
@@ -133,22 +131,6 @@
 
         <div class="text-center copyright light-bg">Powered by Nzei Software Solutions. <a href="{{ url('/terms') }}" >Terms and conditions. </a><a  href="{{ url('/privacy') }}" >Privacy policy</a></div>
  
-    <script type="text/javascript" src="{{ url('js/jquery-3.2.1.min.js') }}" ></script>
-    <script>
-    $(window).scroll(function() {
-        // 100 = The point you would like to fade the nav in.
-
-        if ($(window).scrollTop() > 100) {
-
-            $('.fixed').addClass('is-sticky');
-
-        } else {
-
-            $('.fixed').removeClass('is-sticky');
-
-        };
-    });
-</script>
 </div>
 </body>
 </html>

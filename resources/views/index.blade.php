@@ -1,7 +1,7 @@
 @extends('layouts.index_layout')
 
 @section('content')
-    
+
     <!-- SLIDER -->
     <section class="slider d-flex align-items-center">
         <!-- <img src="{{ asset('storage/home/slider.jpg') }}" class="img-fluid" alt="#"> -->
@@ -231,6 +231,6 @@
             </div>
         </div>
     </div>
-    <!--//END CATEGORIES -->
+<!--//END CATEGORIES -->
     
     @endsection

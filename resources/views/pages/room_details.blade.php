@@ -9,8 +9,8 @@
             <div class="swiper-wrapper">
 
                 <div class="swiper-slide">
-                    <a href="{{ URL::to('/') }}/storage/rooms/{{ $specific->Image1 }}" class="grid image-link">
-                        <img src="{{ URL::to('/') }}/storage/rooms/{{ $specific->Image1 }}" class="img-fluid" alt="#">
+                    <a href="{{ URL::to('/') }}/storage/rooms/{{ $specific->Image4 }}" class="grid image-link">
+                        <img src="{{ URL::to('/') }}/storage/rooms/{{ $specific->Image4 }}" class="img-fluid" alt="#">
                     </a>
                 </div>
                 <div class="swiper-slide">
@@ -24,8 +24,8 @@
                     </a>
                 </div>
                 <div class="swiper-slide">
-                    <a href="{{ URL::to('/') }}/storage/rooms/{{ $specific->Image4 }}" class="grid image-link">
-                        <img src="{{ URL::to('/') }}/storage/rooms/{{ $specific->Image4 }}" class="img-fluid" alt="#">
+                    <a href="{{ URL::to('/') }}/storage/rooms/{{ $specific->Image1 }}" class="grid image-link">
+                        <img src="{{ URL::to('/') }}/storage/rooms/{{ $specific->Image1 }}" class="img-fluid" alt="#">
                     </a>
                 </div>
                 <div class="swiper-slide">
@@ -52,7 +52,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <h4>{{$specific->Residence_name}}</h4>
+                    <h4><strong>{{$specific->Residence_name}}</strong></h4>
                 </div>
                 <div class="col-md-6">
                     <div class="reserve-seat-block">
@@ -74,31 +74,31 @@
                 <div class="col-md-8 responsive-wrap">
                     <div class="booking-checkbox_wrap">
                         <div class="booking-checkbox">
-                            <p>{{$specific->Description}}</p>
+                            <p class="text-justify">{{$specific->Description}}</p>
                             <hr>
                         </div>
                             <div class="row">
                                 <div class="col-md-6">
-                                        <p>Amenities<p/>
+                                        <p><strong>AMENITIES</strong><p/>
                                     @foreach($features as $feature)
                                         <label class="custom-checkbox">
                                             <span class="ti-check-box"></span>
                                             <span class="custom-control-description">{{$feature->Feature}}  </span>
-                                        </label>
+                                        </label><br>
                                     @endforeach
                                 </div>
                                 <div class="col-md-6">
-                                        <p>Rules<p/>
+                                        <p><strong>RULES</strong><p/>
                                     @foreach($regulations as $regulation)
                                         <label class="custom-checkbox">
                                             <span class="ti-check-box"></span>
                                             <span class="custom-control-description">{{$regulation->Regulation}}  </span>
-                                        </label>
+                                        </label><br>
                                     @endforeach
                                 </div>
                             </div> 
                         <hr>
-                        <p>Rental charges<p/>
+                        <p><strong>RENTAL CHARGES</strong><p/>
                         <div class="row">
                             <div class="col-md-6">
                                 <label class="custom-checkbox">
@@ -134,7 +134,7 @@
                 </label>
                             </div>
                         </div><hr>
-                        <p>Nearby Institutions<p/>
+                        <p><strong>NEARBY INSTITUTIONS</strong><p/>
                     <div class="row">
                            <div class="col-md-12">
                                 @foreach($institutions as $institution)
@@ -147,34 +147,36 @@
                         </div>
                     </div>                
                 </div>
+           
                 <div class="col-md-4 responsive-wrap">
                     <div class="contact-info">
-                        <img src="{{ asset('storage/home/waiting.jpg') }}" class="img-fluid" alt="#">
+                        <img src="{{ asset('storage/home/enquiry-form.jpg') }}" class="img-fluid" alt="#">
                         <div class="container"><br>
                         <h5 class="text-center"><strong>Talk to our team</strong></h5><hr>
-                        <p text="center">Full Name</p><br>
-                        <div class="form-group">
-                            <input class="col-md-4" type="text" name="firstname" placeholder="First Name">
-                        
-                            <input class="col-md-4" type="text" name="lastname" placeholder="Last Name">
+                        <div class="alert alert-success" style="display:none"></div>
+                        {{ Form::open(array('method'=>'POST','url' => '/room_details/post', 'id'=>'myForm')) }}
+                        <div class="row">
+                                <div class="col">
+                                  <input required type="text" class="form-control" id="firstName" placeholder="First name">
+                                </div>
+                                <div class="col">
+                                  <input required type="text" class="form-control" id="lastName" placeholder="Last name">
+                                </div>
                         </div>
                         <div class="form-group">
-                            <span class="icon-screen-smartphone"></span>
-                            <p> +44 20 7336 8898</p>
+                            <br><input required type="text" class="form-control" id="email" id="email" placeholder="Email">
+                            <br><input required type="text" class="form-control" id="phone" id="mobile" placeholder="Mobile Number">
+                            <br><textarea class="form-control" id="Message" cols="50" >I would like to enquire about this room,{{$specific->Residence_name}} . Please get back to me as soon as possible.
+                                </textarea>
                         </div>
-                        <div class="form">
-                            <span class="icon-link"></span>
-                            <p>https://burgerandlobster.com</p>
+                        <div class="featured-btn-wrap">
+                                <a href="#" onclick="function()" id="ajaxSubmit" class="btn btn-primary btn-block">ENQUIRE NOW</a> 
                         </div>
-                        <div class="address">
-                            <span class="icon-clock"></span>
-                            <p>Mon - Sun 09:30 am - 05:30 pm <br>
-                                <span class="open-now">OPEN NOW</span></p>
-                                <br><br>
-                            </div>
+                        {{ Form::close() }}
                         </div>
                     </div>
                 </div>
+         
             </div>
         </div>
     </section>
@@ -220,5 +222,30 @@
             });
         }
     </script>
+    <script>
+                jQuery(document).ready(function(){
+                   jQuery('#ajaxSubmit').click(function(e){
+                      e.preventDefault();
+                      $.ajaxSetup({
+                         headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                         }
+                     });
+                      jQuery.ajax({
+                         url: "{{ url('room_details/post') }}",
+                         method: 'POST',
+                         data: {
+                            firstName: jQuery('#firstName').val(),
+                            lastName: jQuery('#lastName').val(),
+                            email: jQuery('#email').val(),
+                            phone: jQuery('#phone').val(),
+                            Message: jQuery('#Message').val()
+                         },
+                         success: function(result){
+                            console.log(result);
+                         }});
+                      });
+                   });
+       </script>
 
 @endsection

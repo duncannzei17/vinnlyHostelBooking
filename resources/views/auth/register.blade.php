@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app_layout')
 
 @section('content')
 <div class="container">
@@ -38,6 +38,25 @@
                                 @endif
                             </div>
                         </div>
+
+                        <div class="form-group row">
+                                <label for="campus" class="col-md-4 col-form-label text-md-right">{{ __('Campus') }}</label>
+    
+                                <div class="col-md-6">
+                                <select required class="form-control" name="campus">
+                                    <option value=""></option>
+                                        <option value="Moi">MOI UNIVERSITY</option>
+                                        <option value="Mut">MURANG'A UNIVERSITY</option>
+                                        <option value="Mat">MACHAKOS UNIVERSITY</option>
+                                </select>
+    
+                                    @if ($errors->has('campus'))
+                                        <span class="invalid-feedback">
+                                            <strong>{{ $errors->first('campus') }}</strong>
+                                        </span>
+                                    @endif
+                                </div>
+                            </div>
 
                         <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>

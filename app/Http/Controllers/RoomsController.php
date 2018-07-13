@@ -10,6 +10,8 @@ use App\regulation;
 
 use App\Institution;
 
+use App\Enquire;
+
 use App\Feature;
 
 use Session;
@@ -30,17 +32,17 @@ class RoomsController extends Controller
 
         switch($range){
             case('query3'):
-                $rooms = DB::table('rooms')->where('Campus', $campus)->where('Rooms_available', '>', 0)->where('Rental_per_month', '>', 7500)->paginate(2);
+                $rooms = DB::table('rooms')->where('Campus', $campus)->where('Rooms_available', '>', 0)->where('Rental_per_month', '>', 7501)->paginate(3);
                 return view('pages.rooms')->with('rooms' , $rooms);
                 break;
 
             case('query2'):
-            $rooms = DB::table('rooms')->where('Campus', $campus)->where('Rooms_available', '>', 0)->where('Rental_per_month', '<', 7500)->paginate(2);
+            $rooms = DB::table('rooms')->where('Campus', $campus)->where('Rooms_available', '>', 0)->where('Rental_per_month', '>', 5000)->where('Rental_per_month', '<', 7501)->paginate(3);
                 return view('pages.rooms')->with('rooms' , $rooms);
                 break;
             
             case('query1'):
-            $rooms = DB::table('rooms')->where('Campus', $campus)->where('Rooms_available', '>', 0)->where('Rental_per_month', '<', 5000)->paginate(2);
+            $rooms = DB::table('rooms')->where('Campus', $campus)->where('Rooms_available', '>', 0)->where('Rental_per_month', '<', 5000)->paginate(3);
                 return view('pages.rooms')->with('rooms' , $rooms);
                 break;
 
@@ -68,7 +70,16 @@ class RoomsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+                 //Create feedback
+                 $enquire = new Enquire;
+                 $enquire->firstName = $request->input('firstName');
+                 $enquire->lastName = $request->input('lastName');
+                 $enquire->email = $request->input('email');
+                 $enquire->phone = $request->input('phone');
+                 $enquire->Message = $request->input('Message');
+                 $enquire->save();
+                 return response()->json(['success'=>'Enquiry is successfully sent']);
+          
     }
 
     /**
@@ -85,7 +96,9 @@ class RoomsController extends Controller
         $features = Feature::where("Room_id", $Room_id)->get();
         $regulations = regulation::where("Room_id", $Room_id)->get();
         
-        return view('pages.room_details')->with('specific', $specific)->with('features', $features)->with('regulations', $regulations)->with('institutions', $institutions);
+        return view('pages.room_details')->with('specific', $specific)
+                ->with('features', $features)->with('regulations', $regulations)
+                ->with('institutions', $institutions);
     }
 
     /**

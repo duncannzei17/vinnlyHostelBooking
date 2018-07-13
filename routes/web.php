@@ -11,10 +11,6 @@
 |
 */
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
 Route::get('/','PagesController@index');
 
 Route::get('/about_us','PagesController@about_us');
@@ -31,3 +27,10 @@ Route::resource('Rooms', 'RoomsController');
 
 Route::resource('Subscribe', 'SubscribesController');
 
+Route::get('ajax',function(){ return view('/pages/room_details'); });
+
+Route::post('room_details/post','RoomsController@store');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
