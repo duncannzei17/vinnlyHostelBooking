@@ -25,7 +25,8 @@
                                             <option value="" selected hidden >Select Your Campus</option>
                                             <option value="Moi">MOI UNIVERSITY</option>
                                             <option value="Mut">MURANG'A UNIVERSITY</option>
-                                            <option value="Mach">MACHAKOS UNIVERSITY</option>                               
+                                            <option value="Mach">MACHAKOS UNIVERSITY</option>
+                                            <option value="usiu">USIU</option>                               
                                         </select>
                                         <select required class="btn-group1" name="Range" placeholder="Select Campus" >
                                            <option value="" selected hidden>Rent Range Per Month</option>

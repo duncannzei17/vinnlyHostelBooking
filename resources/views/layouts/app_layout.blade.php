@@ -83,7 +83,8 @@
 				</div>
             </div> 
         </div> 	
-        
+      
+    @include('flashy::message')
      @yield('content')
       
      <!-- footer -->
@@ -106,12 +107,17 @@
                     </div>
                     <div class="col-sm-4 subscribe">
                         <h4>Subscription</h4>
-                       {!!Form::open(['method'=>'GET','action'=>'SubscribesController@store'])!!}
+                       {!!Form::open(['method'=>'GET','action'=>'SubscribesController@create'])!!}
+                       @if (session('subscribe'))
+                                <div class="alert alert-success text-center">
+                                    {{ session('subscribe') }}
+                                </div>
+                        @endif
                         <div class="input-group">
-                        <input name="email" type="email" class="form-control" placeholder="Enter your email here" required>
-                        <span class="input-group-btn">
-                        {{Form::submit('Get Notify',['class'=>'btn btn-primary'])}}
-                        </span>
+                            <input name="email" type="email" class="form-control" placeholder="Enter your email here" required>
+                            <span class="input-group-btn">
+                            {{Form::submit('Get Notify',['class'=>'btn btn-primary'])}}
+                            </span>
                         </div>
                         {!!Form::close()!!}
                         <br>
@@ -132,5 +138,6 @@
         <div class="text-center copyright light-bg">Powered by Nzei Software Solutions. <a href="{{ url('/terms') }}" >Terms and conditions. </a><a  href="{{ url('/privacy') }}" >Privacy policy</a></div>
  
 </div>
+<script type="text/javascript" src="{{ url('js/jquery-3.2.1.min.js') }}" ></script>
 </body>
 </html>

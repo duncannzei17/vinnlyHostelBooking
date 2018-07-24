@@ -4,13 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Subscribe;
-
-use DB;
+use App\Feedback;
 
 use Session;
 
-class SubscribesController extends Controller
+class feedbackController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -27,15 +25,9 @@ class SubscribesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request)
+    public function create()
     {
-         //Create feedback
-         $subscribe = new Subscribe;
-         $subscribe->email = $request->input('email');
-         $subscribe->save();
-
-         $subscribe = "Feedback has been sent succesfully";
-         return back()->with('subscribe',$subscribe);
+        //
     }
 
     /**
@@ -46,7 +38,16 @@ class SubscribesController extends Controller
      */
     public function store(Request $request)
     {
-        //       
+         //Create feedback
+         $feedback = new Feedback;
+         $feedback->Name = $request->input('name');
+         $feedback->Email = $request->input('email');
+         $feedback->Phone = $request->input('phone');
+         $feedback->Message = $request->input('message');
+         $feedback->save();
+  
+         $message = "Feedback has been sent succesfully";
+         return back()->with('message', $message);
     }
 
     /**

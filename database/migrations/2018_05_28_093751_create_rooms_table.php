@@ -17,6 +17,7 @@ class CreateRoomsTable extends Migration
             $table->increments('Room_id');
             $table->string('Campus');
             $table->string('Residence_name');
+            $table->integer('Listing');
             $table->integer('Rooms_available');
             $table->string('Landlord');
             $table->bigInteger('Contact');

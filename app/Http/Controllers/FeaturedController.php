@@ -4,13 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Subscribe;
-
-use DB;
-
-use Session;
-
-class SubscribesController extends Controller
+class FeaturedController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,7 +13,8 @@ class SubscribesController extends Controller
      */
     public function index()
     {
-        //
+        $listings = DB::table('rooms')->where('Campus', $campus)->where('Listing','=', 3)->where('Rooms_available', '>', 0);
+        return view('index')->with('listings', $listings);
     }
 
     /**
@@ -27,15 +22,9 @@ class SubscribesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request)
+    public function create()
     {
-         //Create feedback
-         $subscribe = new Subscribe;
-         $subscribe->email = $request->input('email');
-         $subscribe->save();
-
-         $subscribe = "Feedback has been sent succesfully";
-         return back()->with('subscribe',$subscribe);
+        //
     }
 
     /**
@@ -46,7 +35,7 @@ class SubscribesController extends Controller
      */
     public function store(Request $request)
     {
-        //       
+        //
     }
 
     /**

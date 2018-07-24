@@ -87,7 +87,7 @@
             </div>
         </div> 
     </div> 	
-        
+        @include('flashy::message')
          @yield('content')
       
      <!-- footer -->
@@ -110,13 +110,19 @@
                     </div>
                     <div class="col-sm-4 subscribe">
                         <h4>Subscription</h4>
-                       {!!Form::open(['method'=>'GET','action'=>'SubscribesController@store'])!!}
-                        <div class="input-group">
+                       {!!Form::open(['method'=>'GET','action'=>'SubscribesController@create'])!!}
+                       @if (session('subscribe'))
+                                <div class="alert alert-success text-center">
+                                    {{ session('subscribe') }}
+                                </div>
+                        @endif 
+                       <div class="input-group">
                         <input name="email" type="email" class="form-control" placeholder="Enter your email here" required>
                         <span class="input-group-btn">
                         {{Form::submit('Get Notify',['class'=>'btn btn-primary'])}}
                         </span>
                         </div>
+                        
                         {!!Form::close()!!}
                         <br>
                         <div class="social text-center">

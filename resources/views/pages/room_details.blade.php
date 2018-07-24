@@ -58,7 +58,7 @@
                     <div class="reserve-seat-block">
                         <div class="reserve-btn">
                             <div class="featured-btn-wrap">
-                                <a href="#" class="btn btn-danger">RESERVE A ROOM</a>
+                                <a href="{{action('ReservationsController@index')}}" class="btn btn-danger">RESERVE A ROOM</a>
                             </div>
                         </div>
                     </div>
@@ -164,8 +164,8 @@
                                 </div>
                         </div>
                         <div class="form-group">
-                            <br><input required type="text" class="form-control" id="email" id="email" placeholder="Email">
-                            <br><input required type="text" class="form-control" id="phone" id="mobile" placeholder="Mobile Number">
+                            <br><input required type="text" class="form-control"  id="email" placeholder="Email">
+                            <br><input required type="text" class="form-control"  id="mobile" placeholder="Mobile Number">
                             <br><textarea class="form-control" id="Message" cols="50" >I would like to enquire about this room,{{$specific->Residence_name}} . Please get back to me as soon as possible.
                                 </textarea>
                         </div>

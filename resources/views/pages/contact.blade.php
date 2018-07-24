@@ -10,7 +10,8 @@
        <div class="row">
 		<div class="col-sm-12 col-sm-offset-6">   		
        		<h4 class="text-center">Please give us your feedback</h4>
-			{!!Form::open(['method'=>'POST'])!!}
+            {!!Form::open(['method'=>'POST', 'action'=>'feedbackController@store'])!!}
+            
 				<div class="form-group">
 					{{Form::text('name','',['class'=>'form-control', 'placeholder'=>'Name','required'])}}
 				</div>
@@ -35,7 +36,14 @@
                             </div>
 				<div class="form-group">
 					{{Form::textarea('message','',['class'=>'form-control', 'placeholder'=>'Message','required'])}}
-				</div>
+                </div>
+
+                @if (session('message'))    
+                    <div class="alert alert-success text-center">
+                        {{Session::get('message')}}
+                    </div>
+                @endif
+
 		     	{{Form::submit('Send',['class'=>'btn btn-primary btn-block'])}}
 			{!!Form::close()!!}
 			<br></div>

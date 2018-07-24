@@ -25,7 +25,12 @@ Route::get('/room_details','PagesController@room_details');
 
 Route::resource('Rooms', 'RoomsController');
 
+Route::resource('Reservations', 'ReservationsController');
+
 Route::resource('Subscribe', 'SubscribesController');
+
+//Route::resource('Feedback', 'feedbackController');
+Route::post('Feedback','feedbackController@store');
 
 Route::get('ajax',function(){ return view('/pages/room_details'); });
 
