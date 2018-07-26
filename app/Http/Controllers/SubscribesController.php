@@ -34,7 +34,7 @@ class SubscribesController extends Controller
          $subscribe->email = $request->input('email');
          $subscribe->save();
 
-         $subscribe = "Feedback has been sent succesfully";
+         $subscribe = "Email has been added to subscription list.";
          return back()->with('subscribe',$subscribe);
     }
 

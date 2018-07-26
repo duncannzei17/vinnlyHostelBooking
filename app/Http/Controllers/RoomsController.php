@@ -70,7 +70,7 @@ class RoomsController extends Controller
      */
     public function store(Request $request)
     {
-                 //Create feedback
+                 //Create enquiry
                  $enquire = new Enquire;
                  $enquire->firstName = $request->input('firstName');
                  $enquire->lastName = $request->input('lastName');
@@ -78,6 +78,7 @@ class RoomsController extends Controller
                  $enquire->phone = $request->input('phone');
                  $enquire->Message = $request->input('Message');
                  $enquire->save();
+
                  return response()->json(['success'=>'Enquiry is successfully sent']);
           
     }

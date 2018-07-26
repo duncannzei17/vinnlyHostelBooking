@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\room;
+
+use DB;
+
 class FeaturedController extends Controller
 {
     /**
@@ -11,10 +15,13 @@ class FeaturedController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $listings = DB::table('rooms')->where('Campus', $campus)->where('Listing','=', 3)->where('Rooms_available', '>', 0);
-        return view('index')->with('listings', $listings);
+        $campus = $request->Campus;
+        
+        $listings = DB::table('rooms')->where('Campus', $campus)->where('Listing','==', 3)->where('Rooms_available', '>', 0)->get();
+        return view('pages.featured')->with('listings', $listings);
+ 
     }
 
     /**
@@ -44,7 +51,7 @@ class FeaturedController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public  function show()
     {
         //
     }

@@ -29,4 +29,8 @@ class PagesController extends Controller
     public function terms(){
         return view('pages.terms') ;
     }
+
+    public function featured(){
+        return view('pages.featured') ;
+    }
 }

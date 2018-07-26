@@ -20,7 +20,7 @@
                                                 <p>Rooms Available </p> <div class="pull-right"><p><b> {{$room->Rooms_available}}</b></p></div>
                                                 <ul>
                                                     <li><span class="icon-wallet"></span>
-                                                        <p>Rental Charges</p><div class="pull-right"><p><b> {{$room->Rental_per_month}}</b></p></div>
+                                                        <p>Rental Charges</p><div class="pull-right"><p><b>KSH.{{$room->Rental_per_month}}</b></p></div>
                                                     </li>
                                                     <li><span class="icon-hourglass"></span>
                                                         <p>Payment Terms</p><div class="pull-right"><p><b> {{$room->Payment_terms}}</b></p></div>

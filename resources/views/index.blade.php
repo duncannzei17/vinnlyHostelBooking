@@ -48,6 +48,7 @@
     <!--//END HEADER -->
 
     <!--============================= FEATURED PLACES =============================-->
+      
     <section class="main-block light-bg">
         <div class="container">
             <div class="row justify-content-center">
@@ -58,84 +59,68 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-4 featured-responsive">
+                <!--Pass controller with campus parameter-->
+                <div class="col-md-3 featured-responsive">
                     <div class="featured-place-wrap">
-                        <a href="detail.html">
-                            <img src="{{ asset('storage/home/image2.jpg') }}" class="img-fluid" alt="#">
-                            <div class="featured-title-box">
-                                <h6>Apartment Name</h6>
-                                        <p>Rooms Available </p> <span>• </span>
-                                        <p>Value</p> 
-                                        <ul>
-                                            <li><span class="icon-wallet"></span>
-                                                <p>Rental Charges</p>
-                                            </li>
-                                            <li><span class="icon-hourglass"></span>
-                                                <p>Payment Modes</p>
-                                            </li>
-                                            <li><span class="icon-grid"></span>
-                                                <p>Layout</p>
-                                            </li>
-                                        </ul>
-                                        <div class="bottom-icons">
-                                            <div class="text-right">MORE DETAILS</div>
-                                        </div>
-                            </div>
+                        <a href= "{{action('FeaturedController@index',['Campus'=>'mut'])}}">
+                            <img src="{{ asset('storage/home/image2.jpg') }}" class="img-fluid" alt="Murang'a">
                         </a>
                     </div>
                 </div>
-                <div class="col-md-4 featured-responsive">
+           
+                <div class="col-md-3 featured-responsive">
                     <div class="featured-place-wrap">
-                        <a href="detail.html">
-                            <img src="{{ asset('storage/home/image2.jpg') }}" class="img-fluid" alt="#">
-                            <div class="featured-title-box">
-                                <h6>Apartment Name</h6>
-                                        <p>Rooms Available </p> <span>• </span>
-                                        <p>Value</p> 
-                                        <ul>
-                                            <li><span class="icon-wallet"></span>
-                                                <p>Rental Charges</p>
-                                            </li>
-                                            <li><span class="icon-hourglass"></span>
-                                                <p>Payment Modes</p>
-                                            </li>
-                                            <li><span class="icon-grid"></span>
-                                                <p>Layout</p>
-                                            </li>
-                                        </ul>
-                                        <div class="bottom-icons">
-                                            <div class="text-right">MORE DETAILS</div>
-                                        </div>
-                            </div>
+                        <a href= "{{action('FeaturedController@index',['Campus'=>'zet'])}}">
+                            <img src="#" class="img-fluid" alt="Zetech">
                         </a>
                     </div>
                 </div>
-                <div class="col-md-4 featured-responsive">
+
+                <div class="col-md-3 featured-responsive">
                     <div class="featured-place-wrap">
-                        <a href="detail.html">
-                            <img src="{{ asset('storage/home/image2.jpg') }}" class="img-fluid" alt="#">
-                            <div class="featured-title-box">
-                               <h6>Apartment Name</h6>
-                                        <p >Rooms Available </p> <span>• </span>
-                                        <p>Value</p> 
-                                        <ul>
-                                            <li><span class="icon-wallet"></span>
-                                                <p>Rental Charges</p>
-                                            </li>
-                                            <li><span class="icon-hourglass"></span>
-                                                <p>Payment Modes</p>
-                                            </li>
-                                            <li><span class="icon-grid"></span>
-                                                <p>Layout</p>
-                                            </li>
-                                        </ul>
-                                        <div class="bottom-icons">
-                                            <div class="text-right">MORE DETAILS</div>
-                                        </div>
-                            </div>
+                        <a href= "{{action('FeaturedController@index',['Campus'=>'ku'])}}">
+                            <img src="#" class="img-fluid" alt="Kenyatta">
                         </a>
                     </div>
                 </div>
+                <div class="col-md-3 featured-responsive">
+                        <div class="featured-place-wrap">
+                            <a href= "{{action('FeaturedController@index',['Campus'=>'usiu'])}}">
+                                <img src="#" class="img-fluid" alt="USIU">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-3 featured-responsive">
+                            <div class="featured-place-wrap">
+                                <a href= "{{action('FeaturedController@index',['Campus'=>'mach'])}}">
+                                    <img src="#" class="img-fluid" alt="Machakos">
+                                </a>
+                            </div>
+                    </div>
+                    
+                    <div class="col-md-3 featured-responsive">
+                            <div class="featured-place-wrap">
+                                <a href= "{{action('FeaturedController@index',['Campus'=>'uon'])}}">
+                                    <img src="#" class="img-fluid" alt="UON">
+                                </a>
+                            </div>
+                    </div>
+
+                    <div class="col-md-3 featured-responsive">
+                            <div class="featured-place-wrap">
+                                <a href= "{{action('FeaturedController@index',['Campus'=>'jkuat'])}}">
+                                    <img src="#" class="img-fluid" alt="JKUAT">
+                                </a>
+                            </div>
+                    </div>
+
+                    <div class="col-md-3 featured-responsive">
+                            <div class="featured-place-wrap">
+                                <a href= "{{action('FeaturedController@index',['Campus'=>'pca'])}}">
+                                    <img src="#" class="img-fluid" alt="PCA">
+                                </a>
+                            </div>
+                    </div>
             </div>
         </div>
     </section><br>
@@ -233,5 +218,4 @@
         </div>
     </div>
 <!--//END CATEGORIES -->
-    
-    @endsection
+@endsection

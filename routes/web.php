@@ -21,6 +21,8 @@ Route::get('/privacy','PagesController@privacy');
 
 Route::get('/terms','PagesController@terms');
 
+Route::get('/featured','PagesController@featured');
+
 Route::get('/room_details','PagesController@room_details');
 
 Route::resource('Rooms', 'RoomsController');
@@ -29,7 +31,8 @@ Route::resource('Reservations', 'ReservationsController');
 
 Route::resource('Subscribe', 'SubscribesController');
 
-//Route::resource('Feedback', 'feedbackController');
+Route::resource('Featured', 'FeaturedController');
+
 Route::post('Feedback','feedbackController@store');
 
 Route::get('ajax',function(){ return view('/pages/room_details'); });

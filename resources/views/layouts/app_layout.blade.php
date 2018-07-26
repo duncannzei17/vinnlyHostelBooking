@@ -9,6 +9,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'vinnly') }}</title>
+    <!--<link rel="icon" href="{{ asset('storage/home/title.jpg') }}" type="image/jpg">-->
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
@@ -136,8 +137,74 @@
         </footer>
 
         <div class="text-center copyright light-bg">Powered by Nzei Software Solutions. <a href="{{ url('/terms') }}" >Terms and conditions. </a><a  href="{{ url('/privacy') }}" >Privacy policy</a></div>
- 
-</div>
-<script type="text/javascript" src="{{ url('js/jquery-3.2.1.min.js') }}" ></script>
+    </div>
+    <!--//END BOOKING DETAILS -->
+    <script type="text/javascript" src=" {{ url('js/jquery-3.2.1.min.js') }}"></script>
+    <script type="text/javascript" src=" {{ url('js/popper.min.js') }}" ></script>
+    <script type="text/javascript" src=" {{ url('js/bootstrap.min.js') }}" ></script>
+    <!-- Magnific popup JS -->
+    <script type="text/javascript" src="{{ url('js/jquery.magnific-popup.js') }}" ></script>
+    <!-- Swipper Slider JS -->
+    <script type="text/javascript" src=" {{ url('js/swiper.min.js') }}" ></script>
+    <script>
+            jQuery(document).ready(function(){
+               jQuery('#ajaxSubmit').click(function(e){
+                  e.preventDefault();
+                  $.ajaxSetup({
+                     headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                     }
+                 });
+                  jQuery.ajax({
+                     url: "{{ url('room_details/post') }}",
+                     method: 'POST',
+                     dataType: 'json',
+                     data: {
+                        firstName: jQuery('#firstName').val(),
+                        lastName: jQuery('#lastName').val(),
+                        email: jQuery('#email').val(),
+                        phone: jQuery('#mobile').val(),
+                        Message: jQuery('#Message').val()
+                     },
+                     success: function(result){
+                        console.log(result);
+                     }});
+                  });
+               });
+   </script>
+    <script>
+        var swiper = new Swiper('.swiper-container', {
+            slidesPerView: 3,
+            slidesPerGroup: 3,
+            loop: true,
+            loopFillGroupWithBlank: true,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        });
+    </script>
+    <script>
+        if ($('.image-link').length) {
+            $('.image-link').magnificPopup({
+                type: 'image',
+                gallery: {
+                    enabled: true
+                }
+            });
+        }
+        if ($('.image-link2').length) {
+            $('.image-link2').magnificPopup({
+                type: 'image',
+                gallery: {
+                    enabled: true
+                }
+            });
+        }
+    </script>
 </body>
 </html>

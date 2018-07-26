@@ -154,7 +154,7 @@
                         <div class="container"><br>
                         <h5 class="text-center"><strong>Talk to our team</strong></h5><hr>
                         <div class="alert alert-success" style="display:none"></div>
-                        {{ Form::open(array('method'=>'POST','url' => '/room_details/post', 'id'=>'myForm')) }}
+                        {{ Form::open(array('method'=>'POST','url' => '/room_details/post')) }}
                         <div class="row">
                                 <div class="col">
                                   <input required type="text" class="form-control" id="firstName" placeholder="First name">
@@ -166,13 +166,16 @@
                         <div class="form-group">
                             <br><input required type="text" class="form-control"  id="email" placeholder="Email">
                             <br><input required type="text" class="form-control"  id="mobile" placeholder="Mobile Number">
-                            <br><textarea class="form-control" id="Message" cols="50" >I would like to enquire about this room,{{$specific->Residence_name}} . Please get back to me as soon as possible.
+                            <br><textarea class="form-control" id="Message" cols="50" >I would like to enquire about this room,{{$specific->Layout}} {{$specific->Residence_name}} . Please get back to me as soon as possible.
                                 </textarea>
                         </div>
+                        
                         <div class="featured-btn-wrap">
-                                <a href="#" onclick="function()" id="ajaxSubmit" class="btn btn-primary btn-block">ENQUIRE NOW</a> 
+                                <button href="#" id="ajaxSubmit" class="btn btn-primary btn-block" onclick="function()">ENQUIRE</button> 
                         </div>
+                        
                         {{ Form::close() }}
+                        
                         </div>
                     </div>
                 </div>
@@ -180,72 +183,4 @@
             </div>
         </div>
     </section>
-    <!--//END BOOKING DETAILS -->
-    <script type="text/javascript" src=" {{ url('js/jquery-3.2.1.min.js') }}"></script>
-    <script type="text/javascript" src=" {{ url('js/popper.min.js') }}" ></script>
-    <script type="text/javascript" src=" {{ url('js/bootstrap.min.js') }}" ></script>
-    <!-- Magnific popup JS -->
-    <script type="text/javascript" src="{{ url('js/jquery.magnific-popup.js') }}" ></script>
-    <!-- Swipper Slider JS -->
-    <script type="text/javascript" src=" {{ url('js/swiper.min.js') }}" ></script>
-    <script>
-        var swiper = new Swiper('.swiper-container', {
-            slidesPerView: 3,
-            slidesPerGroup: 3,
-            loop: true,
-            loopFillGroupWithBlank: true,
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-            },
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            },
-        });
-    </script>
-    <script>
-        if ($('.image-link').length) {
-            $('.image-link').magnificPopup({
-                type: 'image',
-                gallery: {
-                    enabled: true
-                }
-            });
-        }
-        if ($('.image-link2').length) {
-            $('.image-link2').magnificPopup({
-                type: 'image',
-                gallery: {
-                    enabled: true
-                }
-            });
-        }
-    </script>
-    <script>
-                jQuery(document).ready(function(){
-                   jQuery('#ajaxSubmit').click(function(e){
-                      e.preventDefault();
-                      $.ajaxSetup({
-                         headers: {
-                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                         }
-                     });
-                      jQuery.ajax({
-                         url: "{{ url('room_details/post') }}",
-                         method: 'POST',
-                         data: {
-                            firstName: jQuery('#firstName').val(),
-                            lastName: jQuery('#lastName').val(),
-                            email: jQuery('#email').val(),
-                            phone: jQuery('#phone').val(),
-                            Message: jQuery('#Message').val()
-                         },
-                         success: function(result){
-                            console.log(result);
-                         }});
-                      });
-                   });
-       </script>
-
 @endsection
