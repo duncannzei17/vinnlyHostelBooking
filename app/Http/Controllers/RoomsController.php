@@ -70,17 +70,15 @@ class RoomsController extends Controller
      */
     public function store(Request $request)
     {
-                 //Create enquiry
-                 $enquire = new Enquire;
-                 $enquire->firstName = $request->input('firstName');
-                 $enquire->lastName = $request->input('lastName');
-                 $enquire->email = $request->input('email');
-                 $enquire->phone = $request->input('phone');
-                 $enquire->Message = $request->input('Message');
-                 $enquire->save();
-
-                 return response()->json(['success'=>'Enquiry is successfully sent']);
-          
+          //Create enquiry
+          $enquire = new Enquire;
+          $enquire->firstName = $request->input('firstName');
+          $enquire->lastName = $request->input('lastName');
+          $enquire->email = $request->input('email');
+          $enquire->phone = $request->input('phone');
+          $enquire->Message = $request->input('Message');
+          $enquire->save();
+          return response()->json(['success'=>'Enquiry is successfully sent']);   
     }
 
     /**

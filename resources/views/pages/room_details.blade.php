@@ -9,33 +9,33 @@
             <div class="swiper-wrapper">
 
                 <div class="swiper-slide">
-                    <a href="{{ URL::to('/') }}/storage/rooms/{{ $specific->Image4 }}" class="grid image-link">
-                        <img src="{{ URL::to('/') }}/storage/rooms/{{ $specific->Image4 }}" class="img-fluid" alt="#">
+                    <a href="{{ URL::to('/') }}/storage/rooms/{{ $specific->Image4 }}" class="grid image-link" >
+                        <img src="{{ URL::to('/') }}/storage/rooms/{{ $specific->Image4 }}" class="img-fluid" alt="#" style="height: auto">
                     </a>
                 </div>
                 <div class="swiper-slide">
                     <a href="{{ URL::to('/') }}/storage/rooms/{{ $specific->Image2 }}" class="grid image-link">
-                        <img src="{{ URL::to('/') }}/storage/rooms/{{ $specific->Image2 }}" class="img-fluid" alt="#">
+                        <img src="{{ URL::to('/') }}/storage/rooms/{{ $specific->Image2 }}" class="img-fluid" alt="#"  style="height: auto">
                     </a>
                 </div>
                 <div class="swiper-slide">
                     <a href="{{ URL::to('/') }}/storage/rooms/{{ $specific->Image3 }}" class="grid image-link">
-                        <img src="{{ URL::to('/') }}/storage/rooms/{{ $specific->Image3 }}" class="img-fluid" alt="#">
+                        <img src="{{ URL::to('/') }}/storage/rooms/{{ $specific->Image3 }}" class="img-fluid" alt="#"  style="height: auto">
                     </a>
                 </div>
                 <div class="swiper-slide">
                     <a href="{{ URL::to('/') }}/storage/rooms/{{ $specific->Image1 }}" class="grid image-link">
-                        <img src="{{ URL::to('/') }}/storage/rooms/{{ $specific->Image1 }}" class="img-fluid" alt="#">
+                        <img src="{{ URL::to('/') }}/storage/rooms/{{ $specific->Image1 }}" class="img-fluid" alt="#"  style="height: auto">
                     </a>
                 </div>
                 <div class="swiper-slide">
                     <a href="{{ URL::to('/') }}/storage/rooms/{{ $specific->Image5 }}" class="grid image-link">
-                        <img src="{{ URL::to('/') }}/storage/rooms/{{ $specific->Image5 }}" class="img-fluid" alt="#">
+                        <img src="{{ URL::to('/') }}/storage/rooms/{{ $specific->Image5 }}" class="img-fluid" alt="#"  style="height: auto">
                     </a>
                 </div>
                 <div class="swiper-slide">
                     <a href="{{ URL::to('/') }}/storage/rooms/{{ $specific->Image3 }}" class="grid image-link">
-                        <img src="{{ URL::to('/') }}/storage/rooms/{{ $specific->Image1 }}" class="img-fluid" alt="#">
+                        <img src="{{ URL::to('/') }}/storage/rooms/{{ $specific->Image1 }}" class="img-fluid" alt="#"  style="height: auto">
                     </a>
                 </div>
             </div>
@@ -103,23 +103,23 @@
                             <div class="col-md-6">
                                 <label class="custom-checkbox">
                         <span class="ti-check-box"></span>
-                        <span class="custom-control-description">Rent payable monthly :<strong> Ksh.{{$specific->Rental_per_month}}</strong></span>
+                        <span class="custom-control-description">Rent payable monthly :<strong> KSH.{{$specific->Rental_per_month}}</strong></span>
                       </label> </div>
                             <div class="col-md-6">
                                 <label class="custom-checkbox">
                        <span class="ti-check-box"></span>
-                       <span class="custom-control-description">Advance rental deposit :<strong> Ksh.{{$specific->Advance_deposit}}</strong></span>
+                       <span class="custom-control-description">Advance rental deposit :<strong> KSH.{{$specific->Advance_deposit}}</strong></span>
                      </label>
                             </div>
                             <div class="col-md-6">
                                 <label class="custom-checkbox">
                      <span class="ti-check-box"></span>
-                     <span class="custom-control-description">Electricity deposit :<strong> Ksh.{{$specific->Electricity_deposit}}</strong></span>
+                     <span class="custom-control-description">Electricity deposit :<strong> KSH.{{$specific->Electricity_deposit}}</strong></span>
                    </label> </div>
                             <div class="col-md-6">
                                 <label class="custom-checkbox">
                     <span class="ti-check-box"></span>
-                    <span class="custom-control-description">Water deposit :<strong> Ksh.{{$specific->Water_deposit}} </strong></span>
+                    <span class="custom-control-description">Water deposit :<strong> KSH.{{$specific->Water_deposit}} </strong></span>
                   </label>
                             </div>
                             <div class="col-md-6">
@@ -130,7 +130,7 @@
                             <div class="col-md-6">
                                 <label class="custom-checkbox">
                   <span class="ti-check-box"></span>
-                  <span class="custom-control-description">Total Rent :<strong> Ksh.{{$specific->Total_rent}}</strong></span>
+                  <span class="custom-control-description">Total Rent :<strong> KSH.{{$specific->Total_rent}}</strong></span>
                 </label>
                             </div>
                         </div><hr>

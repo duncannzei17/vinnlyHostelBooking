@@ -11,7 +11,7 @@
                    
                     <div class="row">
                         <div class="col-md-6">
-                                <hr><hr><img src="{{ URL::to('/') }}/storage/rooms/{{$values["image"]}}" class="img-fluid" alt="#"><hr><hr>
+                                <hr><hr><img src="{{ URL::to('/') }}/storage/rooms/{{$values["image"]}}" style="height: auto" class="img-fluid" alt="#"><hr><hr>
                         </div>
                         <div class="col-md-6">
                             <br><input type="text" class="form-control" id="name" placeholder="NAME : {{$values["user"]}}">

@@ -11,9 +11,6 @@
            <div class="col-sm-4 text-justify"><p>VHB is a open startup business and is open for any interested investor and willing to work and cooperate with Landlords, property owners and property agents in order to embrace technology as means of social and economic change and achieve our set goals and vision.</p></div>              
     </div>
 
-    <div class="spacer">
-    <div class="embed-responsive embed-responsive-16by9"><img  class="embed-responsive-item" src="{{ asset('storage/home/engage.gif') }}" width="100%" height="400" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></div>
-    </div>
 </div>
 
 @endsection

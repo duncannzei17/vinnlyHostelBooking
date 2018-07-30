@@ -19,9 +19,9 @@ class FeaturedController extends Controller
     {
         $campus = $request->Campus;
         
-        $listings = DB::table('rooms')->where('Campus', $campus)->where('Listing','==', 3)->where('Rooms_available', '>', 0)->get();
+        $listings = DB::table('rooms')->where('Campus', $campus)->where('Listing','=', 2)->where('Rooms_available', '>', 0)->get();
         return view('pages.featured')->with('listings', $listings);
- 
+  
     }
 
     /**

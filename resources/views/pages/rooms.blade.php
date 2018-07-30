@@ -14,7 +14,7 @@
                                 <div class="container">
                                     <div class="featured-place-wrap">
                                         <a href="Rooms/{{$room->Room_id}}">
-                                            <img src="storage/rooms/{{$room->Image1}}" class="img-fluid" alt="#">
+                                            <img src="storage/rooms/{{$room->Image1}}" class="img-fluid" alt="#" style="height:280px">
                                             <div class="featured-title-box">
                                                 <h6 class = "text-center">{{$room->Residence_name}}</h6><hr>
                                                 <p>Rooms Available </p> <div class="pull-right"><p><b> {{$room->Rooms_available}}</b></p></div>
@@ -37,7 +37,16 @@
                         @endforeach
                             <div class="container"> {{ $rooms->appends($_GET)->links()}}</div>
                         @else
-                            <div class = "container"> No room </div>
+                        <div class = "container"> 
+                            <div class="col-lg-12 wowload fadeInUp">
+                                <div class="rooms">
+                                    <div class="info"><h3 class="text-center">Sorry!</h3><p class="text-center"> We are yet to list a room that meets the specifications.</p></div>
+                                    <div class="embed-responsive embed-responsive-16by9 wowload fadeInLeft">
+                                        <img  class="embed-responsive-item" src="{{ asset('storage/home/waiting_blur.jpg') }}" width="100%" height="400" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen>
+                                    </div>
+                                </div>
+                            </div>    
+                        </div>
                         @endif
                     </div>
                 </div>
